@@ -63,3 +63,4 @@
     style="font-size:{$bufferchrsize}px">
     {$rowstore.s}
 </text>
+

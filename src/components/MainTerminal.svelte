@@ -1,6 +1,7 @@
 <script lang="ts">
     import { onMount } from 'svelte';
-	import { get,writable } from "svelte/store";
+	import { get,writable } from 'svelte/store';
+	import { colors } from '../state/themes.ts';
     import {
         txts,
         buffersize,
@@ -50,9 +51,11 @@
 
 <div class="main-terminal">
     <svg width="100%" height="100%" style="position:absolute">
-        {#each $txts as rowstore, rownum (rownum)}
+		{#each $txts as rowstore, rownum (rownum)}
 			<TextRow {rowstore} {rownum} chance={Math.random() * 0.9 + 0.05} />
-        {/each}
+		{/each}
+
+		<rect style="fill:url(#vignette-grad)" x="0" y="0" width="100%" height="100%"/>
 
 		<mask id="textmask">
 			<text
@@ -66,5 +69,13 @@
 				404
 			</text>
 		</mask>
+
+		<defs>
+			<radialGradient id="vignette-grad" fx="50%" fy="50%" r="55%" spreadMethod="pad">
+				<stop offset="0%"   stop-color="{$colors.bg}" stop-opacity="0"/>
+				<stop offset="70%"   stop-color="{$colors.bg}" stop-opacity="0"/>
+				<stop offset="100%"   stop-color="{$colors.bg}" stop-opacity="0.5"/>
+			</radialGradient>
+		</defs>
     </svg>
 </div>
