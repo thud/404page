@@ -51,7 +51,7 @@
     class="term-row"
     fill={$colors.grey}
     y={($bufferchrsize + $bufferchrpadding) * rownum}
-    style="font-size:{$bufferchrsize}px">
+	style="font-size:{$bufferchrsize}px">
     {$rowstore.s}
 </text>
 
@@ -60,7 +60,7 @@
     fill={$colors.red}
     y={($bufferchrsize + $bufferchrpadding) * rownum}
 	mask="url(#textmask)"
-    style="font-size:{$bufferchrsize}px">
+	style="font-size:{$bufferchrsize}px; text-shadow: 0 0 10px {$colors.red};">
     {$rowstore.s}
 </text>
 
